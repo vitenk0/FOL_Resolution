@@ -11,7 +11,6 @@ public class lab2{
         ArrayList<String> f = new ArrayList<String>();
         ArrayList<ArrayList<String>> cl = new ArrayList<ArrayList<String>>();
 
-
         try{
             File file = new File(args[0]);
             Scanner sc = new Scanner(file);
@@ -39,69 +38,93 @@ public class lab2{
             e.printStackTrace();
         }
 
-        ArrayList<Predicate> preds = new ArrayList<Predicate>();
-        ArrayList<Constant> cons = new ArrayList<Constant>();
         ArrayList<Clause> clauses = new ArrayList<Clause>();
-
-        /*
-        for(String pred: p){
-            preds.add(new Predicate(pred));
-        }
-
-        for(String con: c){
-            cons.add(new Constant(con));
-        }*/
+        System.out.println(cl);
 
         for(ArrayList<String> clause: cl){
+            ArrayList<Predicate> preds = new ArrayList<Predicate>();
             for(String string: clause){
-                String[] lits = string.split("(");
+                String[] lits = string.split("\\(");
                 Predicate newPred;
-                switch(lits.length){
-                    case 1: if(string.charAt(0) == '!'){
-                                newPred = new Predicate(lits[0], true);
-                            } else{
-                                newPred = new Predicate(lits[0], false);
-                            }
-                            preds.add(newPred);
-                            break;
-                    case 2: if(string.charAt(0) == '!'){
-                                newPred = new Predicate(lits[0], true, new Constant(lits[1]));
-                            } else{
-                                newPred = new Predicate(lits[0], false, new Constant(lits[1]));
-                            }
-                            preds.add(newPred);
-                            break;
+                if(lits.length == 1){
+                    if(string.charAt(0) == '!'){
+                        newPred = new Predicate(lits[0].substring(1,lits[0].length()), true);
+                    } else{
+                        newPred = new Predicate(lits[0], false);
+                    }
+                    preds.add(newPred);
+                }
+                else{
+                    ArrayList<Term> terms = new ArrayList<Term>(); 
+                    String[] termsString = lits[1].split(",");
+                    for(int i = 0; i < termsString.length-1; i++){
+                        Term term = new Term(termsString[i]);
+                        terms.add(term);
+                    }
+                    Term term = new Term(termsString[termsString.length-1].substring(0, termsString[termsString.length-1].length()-1));
+                    terms.add(term);
+                    if(string.charAt(0) == '!'){
+                        newPred = new Predicate(lits[0].substring(1,lits[0].length()), true, terms);
+                    } else{
+                        newPred = new Predicate(lits[0], false, terms);
+                    }
+                    preds.add(newPred);
                 }
             }
             Clause newClause = new Clause(preds);
             clauses.add(newClause);
         }
-
-        System.out.println(clauses);
         
-        /* 
-        ArrayList<ArrayList<String>> newClauses = new ArrayList<ArrayList<String>>();
-        ArrayList<ArrayList<String>> resolvents = new ArrayList<ArrayList<String>>();
+        ArrayList<Clause> newClauses = new ArrayList<Clause>();
+        Clause resolvents;
         while(true){
-            for(int i = 0; i < clauses.size(); i++){
-                for(int j = i + 1; j < clauses.size(); i++){
+            for(int i = 0; i < clauses.size()-1; i++){
+                for(int j = i + 1; j < clauses.size()-1; i++){
                     resolvents = resolve(clauses.get(i), clauses.get(j));
-                    if(resolvents.contains("[]")){
+                    if(resolvents.preds == null){
                         System.out.println("no");
                         return;
                     }
-                    newArr.addAll(resolvents);
+                    newClauses.add(resolvents);
                 }
             }
-            if(clauses.containsAll(newArr)){
+            if(clauses.containsAll(newClauses)){
                 System.out.println("yes");
                 return;
             }
-            clauses.addAll(newArr);
+            clauses.addAll(newClauses);
         }
     }
 
-    public static ArrayList<ArrayList<String>> resolve(ArrayList<String> clause1, ArrayList<String> clause2){
+    public static Clause resolve(Clause clause1, Clause clause2){
+        ArrayList<Predicate> preds = new ArrayList<Predicate>();
+        preds.addAll(clause1.preds);
+        preds.addAll(clause2.preds);
+        for(int i = 0; i < preds.size(); i++){
+            for(int j = i + 1; j < preds.size(); j++){
+                if(compare(preds.get(i), preds.get(j))){
+                    preds.remove(i);
+                    preds.remove(j);
+                    i = 0;
+                    j = 1;
+                }
+            }
+        }
+        if(preds.size() == 0){
+            return new Clause();
+        }
+        return new Clause(preds);
+    }
 
-    }*/
-    }}
+    public static boolean compare(Predicate p1, Predicate p2){
+        if(p1.predicate.equals(p2.predicate) && ((p1.negated && !p2.negated) || (!p1.negated && p2.negated)) 
+            && unify(p1,p2)){
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean unify(Predicate p1, Predicate p2){
+        return true;
+    }
+}
