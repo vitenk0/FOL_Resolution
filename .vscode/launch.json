@@ -9,14 +9,15 @@
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}",
-            "args": "testcases/testcases/functions/f5.cnf"
+            "args": ".\\testcases\\testcases\\constants\\c01.cnf"
         },
         {
             "type": "java",
             "name": "lab2",
             "request": "launch",
             "mainClass": "lab2",
-            "projectName": "LAB2_4d7ff949"
+            "projectName": "LAB2_e3827689",
+            "args": ".\\testcases\\testcases\\constants\\c06.cnf"
         }
     ]
 }
