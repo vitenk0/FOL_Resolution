@@ -1,10 +1,11 @@
 import java.util.*;
 
 public class Clause {
-    ArrayList<Predicate> preds;
+    public ArrayList<Predicate> preds;
 
     public Clause(){
-        this.preds = null;
+        this.preds = new ArrayList<Predicate>();
+        this.preds.add(new Predicate());
     }
 
     public Clause(ArrayList<Predicate> preds){

@@ -4,20 +4,160 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
             "type": "java",
-            "name": "Current File",
+            "name": "c01",
             "request": "launch",
             "mainClass": "${file}",
             "args": ".\\testcases\\testcases\\constants\\c01.cnf"
         },
         {
             "type": "java",
-            "name": "lab2",
+            "name": "c02",
             "request": "launch",
-            "mainClass": "lab2",
-            "projectName": "LAB2_e3827689",
+            "mainClass": "${file}",
+            "args": ".\\testcases\\testcases\\constants\\c02.cnf"
+        },
+        {
+            "type": "java",
+            "name": "c03",
+            "request": "launch",
+            "mainClass": "${file}",
+            "args": ".\\testcases\\testcases\\constants\\c03.cnf"
+        },
+        {
+            "type": "java",
+            "name": "c04",
+            "request": "launch",
+            "mainClass": "${file}",
+            "args": ".\\testcases\\testcases\\constants\\c04.cnf"
+        },
+        {
+            "type": "java",
+            "name": "c05",
+            "request": "launch",
+            "mainClass": "${file}",
+            "args": ".\\testcases\\testcases\\constants\\c05.cnf"
+        },
+        {
+            "type": "java",
+            "name": "c06",
+            "request": "launch",
+            "mainClass": "${file}",
             "args": ".\\testcases\\testcases\\constants\\c06.cnf"
+        },
+        {
+            "type": "java",
+            "name": "c07",
+            "request": "launch",
+            "mainClass": "${file}",
+            "args": ".\\testcases\\testcases\\constants\\c07.cnf"
+        },
+        {
+            "type": "java",
+            "name": "c08",
+            "request": "launch",
+            "mainClass": "${file}",
+            "args": ".\\testcases\\testcases\\constants\\c08.cnf"
+        },
+        {
+            "type": "java",
+            "name": "c09",
+            "request": "launch",
+            "mainClass": "${file}",
+            "args": ".\\testcases\\testcases\\constants\\c09.cnf"
+        },
+        {
+            "type": "java",
+            "name": "p01",
+            "request": "launch",
+            "mainClass": "${file}",
+            "args": ".\\testcases\\testcases\\prop\\p01.cnf"
+        },
+        {
+            "type": "java",
+            "name": "p02",
+            "request": "launch",
+            "mainClass": "${file}",
+            "args": ".\\testcases\\testcases\\prop\\p02.cnf"
+        },
+        {
+            "type": "java",
+            "name": "p03",
+            "request": "launch",
+            "mainClass": "${file}",
+            "args": ".\\testcases\\testcases\\prop\\p03.cnf"
+        },
+        {
+            "type": "java",
+            "name": "p04",
+            "request": "launch",
+            "mainClass": "${file}",
+            "args": ".\\testcases\\testcases\\prop\\p04.cnf"
+        },
+        {
+            "type": "java",
+            "name": "p05",
+            "request": "launch",
+            "mainClass": "${file}",
+            "args": ".\\testcases\\testcases\\prop\\p05.cnf"
+        },
+        {
+            "type": "java",
+            "name": "p06",
+            "request": "launch",
+            "mainClass": "${file}",
+            "args": ".\\testcases\\testcases\\prop\\p06.cnf"
+        },
+        {
+            "type": "java",
+            "name": "p07",
+            "request": "launch",
+            "mainClass": "${file}",
+            "args": ".\\testcases\\testcases\\prop\\p07.cnf"
+        },
+        {
+            "type": "java",
+            "name": "p08",
+            "request": "launch",
+            "mainClass": "${file}",
+            "args": ".\\testcases\\testcases\\prop\\p08.cnf"
+        },
+        {
+            "type": "java",
+            "name": "p09",
+            "request": "launch",
+            "mainClass": "${file}",
+            "args": ".\\testcases\\testcases\\prop\\p09.cnf"
+        },
+        {
+            "type": "java",
+            "name": "p10",
+            "request": "launch",
+            "mainClass": "${file}",
+            "args": ".\\testcases\\testcases\\prop\\p10.cnf"
+        },
+        {
+            "type": "java",
+            "name": "p11",
+            "request": "launch",
+            "mainClass": "${file}",
+            "args": ".\\testcases\\testcases\\prop\\p11.cnf"
+        },
+        {
+            "type": "java",
+            "name": "p12",
+            "request": "launch",
+            "mainClass": "${file}",
+            "args": ".\\testcases\\testcases\\prop\\p12.cnf"
+        },
+        {
+            "type": "java",
+            "name": "p13",
+            "request": "launch",
+            "mainClass": "${file}",
+            "args": ".\\testcases\\testcases\\prop\\p13.cnf"
         }
     ]
 }

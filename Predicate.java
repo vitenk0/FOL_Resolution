@@ -1,9 +1,13 @@
 import java.util.*;
 
 public class Predicate {
-    String predicate;
-    ArrayList<Term> terms;
-    boolean negated;
+    public String predicate;
+    public ArrayList<Term> terms;
+    public boolean negated;
+
+    public Predicate(){
+        this.predicate = "[]";
+    }
 
     public Predicate(String p, boolean negated){
         this.predicate = p;
